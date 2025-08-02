@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f09645ad8809b1842a643580bb1bc09e
+guid: 40ec88d0ec6179646aef27a9581a1649
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3177449966546744709
-    second: kurma_0
+      213: -531044955946308832
+    second: unta_brown_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kurma_0
+      name: unta_brown_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 360
-        height: 360
+        y: 3
+        width: 477
+        height: 568
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7a876c171e67e3d0800000000000000
-      internalID: -3177449966546744709
+      spriteID: 02bae091d6951a8f0800000000000000
+      internalID: -531044955946308832
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kurma_0: -3177449966546744709
+      unta_brown_0: -531044955946308832
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

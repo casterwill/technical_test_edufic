@@ -33,6 +33,8 @@ public class ChangeSlideManager : MonoBehaviour
 
     public IEnumerator AfterQuizCorrect()
     {
+        Debug.Log("Call AfterQuizCorrect ienum");
+
         NextSlide();
         yield return new WaitForSeconds(3f);
         NextSlide();

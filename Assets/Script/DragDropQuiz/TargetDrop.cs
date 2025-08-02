@@ -8,14 +8,15 @@ public class TargetDrop : MonoBehaviour, IDropHandler
     
     [SerializeField] private JawabanDrag currentJawaban;
 
+    [SerializeField] private Transform dropTargetTransform;
     public void OnDrop(PointerEventData eventData)
     {
-        if (transform.childCount == 0)
+        if (dropTargetTransform.childCount == 0)
         {
             var dragged = eventData.pointerDrag.GetComponent<JawabanDrag>();
             if (dragged != null)
             {
-                dragged.transform.SetParent(transform);
+                dragged.transform.SetParent(dropTargetTransform);
                 dragged.transform.localPosition = Vector3.zero;
                 currentJawaban = dragged;
 

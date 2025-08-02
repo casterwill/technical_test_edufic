@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f09645ad8809b1842a643580bb1bc09e
+guid: e4b58a57c60236b4899f1094bc0f0cb1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3177449966546744709
-    second: kurma_0
+      213: -1658841355185294287
+    second: button_next_orange_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kurma_0
+      name: button_next_orange_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 360
-        height: 360
+        width: 208
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7a876c171e67e3d0800000000000000
-      internalID: -3177449966546744709
+      spriteID: 134f37d839c9af8e0800000000000000
+      internalID: -1658841355185294287
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kurma_0: -3177449966546744709
+      button_next_orange_0: -1658841355185294287
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

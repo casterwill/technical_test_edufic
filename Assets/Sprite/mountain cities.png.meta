@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: f09645ad8809b1842a643580bb1bc09e
+guid: 6d745b584ec59944f806c1566644feae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3177449966546744709
-    second: kurma_0
+      213: -1949767993872535156
+    second: mountain cities_0
+  - first:
+      213: 8850008414703319205
+    second: mountain cities_1
+  - first:
+      213: 8407955625051034161
+    second: mountain cities_2
+  - first:
+      213: 113186310546186636
+    second: mountain cities_3
+  - first:
+      213: -3291582867581843720
+    second: mountain cities_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kurma_0
+      name: mountain cities_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 360
-        height: 360
+        width: 1728
+        height: 1117
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b7a876c171e67e3d0800000000000000
-      internalID: -3177449966546744709
+      spriteID: c813dc2075801f4e0800000000000000
+      internalID: -1949767993872535156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mountain cities_1
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1081
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8fb9983cb81da70800000000000000
+      internalID: 8850008414703319205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mountain cities_2
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1061
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1321a6ef71f0fa470800000000000000
+      internalID: 8407955625051034161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mountain cities_3
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1038
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81ea89895e129100800000000000000
+      internalID: 113186310546186636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mountain cities_4
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1001
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f6c50d42d2f152d0800000000000000
+      internalID: -3291582867581843720
       vertices: []
       indices: 
       edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kurma_0: -3177449966546744709
+      mountain cities_0: -1949767993872535156
+      mountain cities_1: 8850008414703319205
+      mountain cities_2: 8407955625051034161
+      mountain cities_3: 113186310546186636
+      mountain cities_4: -3291582867581843720
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

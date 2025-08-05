@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class QuizManager : MonoBehaviour
@@ -11,9 +12,13 @@ public class QuizManager : MonoBehaviour
     
     private ChangeSlideManager changeSlideManager;
 
+    [SerializeField] private Animator quizAnimator;
+
     private void Start()
     {
         ScriptCaching();
+
+        quizAnimator ??= GetComponentInParent<Animator>();
     }
 
     private void ScriptCaching()
@@ -41,12 +46,15 @@ public class QuizManager : MonoBehaviour
 
         if (allCorrect)
         {
-            StartCoroutine(changeSlideManager.AfterQuizCorrect());
+            //changeSlideManager.CallAfterQuizIEnum();
+            quizAnimator.SetTrigger("RightAnswer");
         }
         else
         {
             Debug.Log("Jawaban salah. Reset.");
-            ClearTargetDrop();
+
+            StartCoroutine(StartWrongAnswerIEnum());
+            //ClearTargetDrop();
         }
     }
 
@@ -58,8 +66,35 @@ public class QuizManager : MonoBehaviour
             {
                 // Kembalikan jawaban ke asal dan bersihkan referensi target
                 target.GetCurrentJawaban().ResetPosition();
-                target.SetCurrentJawaban(null);
+                //target.SetCurrentJawaban(null);
             }
+        }
+    }
+
+    private IEnumerator StartWrongAnswerIEnum()
+    {
+        foreach (var target in targets)
+        {
+            target.GetCurrentJawaban().ChangeColorToWrong();
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        foreach (var target in targets)
+        {
+            target.GetCurrentJawaban().ResetPosition();
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        foreach (var target in targets)
+        {
+            target.GetCurrentJawaban().ChangeColorToNormal();
+        }
+
+        foreach (var target in targets)
+        {
+            target.SetCurrentJawaban(null);
         }
     }
 }

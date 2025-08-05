@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +20,17 @@ public class MovingCloudManager : MonoBehaviour
     public float maxSpeed = 3f;
 
     private float timer = 10f;
-    private List<GameObject> activeClouds = new List<GameObject>();
+    private List<SpriteRenderer> activeClouds = new List<SpriteRenderer>();
+
+
+    public static MovingCloudManager Singleton;
+    private void Awake()
+    {
+        if (Singleton == null)
+        {
+            Singleton = this;
+        }
+    }
 
     void Update()
     {
@@ -35,7 +46,7 @@ public class MovingCloudManager : MonoBehaviour
         // Gerakkan cloud dan hapus jika keluar layar
         for (int i = activeClouds.Count - 1; i >= 0; i--)
         {
-            GameObject cloud = activeClouds[i];
+            GameObject cloud = activeClouds[i].gameObject;
             cloud.transform.position += Vector3.left * cloud.GetComponent<CloudMover>().speed * Time.deltaTime;
 
             if (cloud.transform.position.x < despawnX)
@@ -57,6 +68,49 @@ public class MovingCloudManager : MonoBehaviour
         CloudMover mover = cloud.AddComponent<CloudMover>();
         mover.speed = speed;
 
-        activeClouds.Add(cloud);
+        activeClouds.Add(cloud.GetComponent<SpriteRenderer>());
+    }
+
+    public float fadeDuration = 1f;
+
+    public void FadeOutAll() => StartCoroutine(FadeOut());
+
+    private IEnumerator FadeOut()
+    {
+        float t = 0;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, t / fadeDuration);
+
+            foreach (var s in activeClouds)
+                if (s) s.color = new Color(s.color.r, s.color.g, s.color.b, alpha);
+
+            yield return null;
+        }
+
+        // Pastikan alpha = 0 di akhir
+        foreach (var s in activeClouds)
+            if (s) s.color = new Color(s.color.r, s.color.g, s.color.b, 0);
+    }
+
+    public void FadeInAll() => StartCoroutine(FadeIn());
+
+    private IEnumerator FadeIn()
+    {
+        float t = 0;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 0.5f, t / fadeDuration);
+
+            foreach (var s in activeClouds)
+                if (s) s.color = new Color(s.color.r, s.color.g, s.color.b, alpha);
+
+            yield return null;
+        }
+
+        foreach (var s in activeClouds)
+            if (s) s.color = new Color(s.color.r, s.color.g, s.color.b, 0.5f);
     }
 }

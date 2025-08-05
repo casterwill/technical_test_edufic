@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class ChangeSlideManager : MonoBehaviour
 {
-    public List<SlideInfo> slides;
+    [SerializeField] private Transform slideParent;
+    private List<SlideInfo> slides = new List<SlideInfo>();
+
+    private MovingCloudManager movingCloudManager;
 
     public static ChangeSlideManager Singleton;
 
@@ -22,22 +25,46 @@ public class ChangeSlideManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InitiateSlideList();
+        ScriptChaching();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void ScriptChaching()
     {
-        
+        movingCloudManager = MovingCloudManager.Singleton;
     }
 
-    public IEnumerator AfterQuizCorrect()
+    private void InitiateSlideList()
     {
-        Debug.Log("Call AfterQuizCorrect ienum");
+        int slideIndex = 0;
+        foreach (Transform childTransform in slideParent)
+        {
+            if (childTransform.TryGetComponent<Slide>(out Slide slideScript))
+            {
+                slides.Add(new SlideInfo
+                {
+                    slideIndex = slideIndex,
+                    slideParent = childTransform.GetComponent<Slide>()
+                });
+
+                slideIndex++;
+            }
+
+        }
+    }
+
+    public void CallAfterQuizIEnum()
+    {
+        StartCoroutine(AfterQuizCorrect());
+    }
+
+    private IEnumerator AfterQuizCorrect()
+    {
 
         NextSlide();
         yield return new WaitForSeconds(3f);
         NextSlide();
+        Debug.Log("Call AfterQuizCorrect ienum");
     }
 
     public void NextSlide()
@@ -48,7 +75,8 @@ public class ChangeSlideManager : MonoBehaviour
             if (SlideInfo.slideIndex == currentIndex)
             {
                 SlideInfo.slideParent.gameObject.SetActive(true);
-                Debug.Log("Nexy slide");
+                if (SlideInfo.slideParent.GetShowCloudOnFadeIn()) movingCloudManager.FadeInAll();
+                Debug.Log("Next slide");
             }
             else
             {

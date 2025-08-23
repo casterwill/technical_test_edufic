@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -17,7 +18,10 @@ public class TargetDrop : MonoBehaviour, IDropHandler
             if (dragged != null)
             {
                 dragged.transform.SetParent(dropTargetTransform);
-                dragged.transform.localPosition = Vector3.zero;
+
+                dragged.transform.DOKill();
+                dragged.transform.DOLocalMove(Vector3.zero, 0.1f).SetEase(Ease.InOutQuad);
+
                 currentJawaban = dragged;
 
                 QuizManager.Instance.CheckAllAnswered();
